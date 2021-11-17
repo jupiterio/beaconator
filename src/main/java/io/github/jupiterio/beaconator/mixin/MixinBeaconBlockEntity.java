@@ -7,8 +7,9 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(BeaconBlockEntity.class)
 public class MixinBeaconBlockEntity {
+
     @ModifyVariable(method = "applyPlayerEffects", at = @At(value = "STORE", ordinal = 0), ordinal = 0)
-    private double increaseDistance(double d) {
+    private static double increaseDistance(double d) {
         return d * 2;
     }
 }
